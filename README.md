@@ -1,2 +1,3 @@
-# jrbros.fr
-Website and progressive web app design and development.
+# JR BROS.
+
+Code source du site web jrbros.fr

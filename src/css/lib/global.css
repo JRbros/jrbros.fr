@@ -41,6 +41,7 @@ body {
 
 .Copy {
     /* Box model */
+    max-width: 34rem;
     margin: 2rem 0;
 
     /* Typo */

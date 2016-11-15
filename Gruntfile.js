@@ -69,9 +69,6 @@ module.exports = function(grunt) {
                     require('postcss-import')(),
                     require('autoprefixer')(),
                     require('cssnext')(),
-                    require('postcss-url')({
-                        url: 'rebase'
-                    })
                 ]
             },
             files: {

@@ -1,2 +1,6 @@
 @import 'lib/normalize.css';
 @import 'lib/global.css';
+@import 'lib/section.css';
+@import 'lib/hero-unit.css';
+@import 'lib/projects.css';
+@import 'lib/contact.css';

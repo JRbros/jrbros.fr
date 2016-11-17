@@ -69,6 +69,11 @@ module.exports = function(grunt) {
                     require('postcss-import')(),
                     require('autoprefixer')(),
                     require('cssnext')(),
+                    require('postcss-url')({
+                        url: 'copy',
+                        from: 'src/css/lib/style.css',
+                        to: 'public/style.css'
+                    })
                 ]
             },
             files: {
@@ -95,7 +100,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'public/style.css': 'public/style.css'
+                    'public/style.min.css': 'public/style.css'
                 }
             }
         },

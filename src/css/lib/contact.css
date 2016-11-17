@@ -1,0 +1,7 @@
+.Section--contact {
+    /* Typo */
+    color: #fff;
+
+    /* Visual */
+    background-image: linear-gradient(to top right, #ffcc2b 0%, #ff1d65 100%);
+}

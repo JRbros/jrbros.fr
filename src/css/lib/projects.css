@@ -1,0 +1,233 @@
+.Project__list {
+    /* Box model */
+    margin: -1rem 0 3rem;
+    max-width: 80rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 0;
+
+    /* Typo */
+    color: #222;
+
+    /* Visual */
+    list-style-type: none;
+}
+
+.Project__item {
+    /* Box model */
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    flex: 0 1 0;
+
+    /* Typo */
+    color: #222;
+}
+
+.Project__header {
+    /* Box model */
+    height: 13em;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: .8rem .8rem 0;
+
+    /* Typo */
+    color: #fff;
+
+    /* Visual */
+    transition: all .5s linear;
+}
+
+.Project__header-title {
+    /* Box model */
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+
+    /* Typo */
+    text-align: center;
+}
+
+.Project__header-screen {
+    display: block;
+    max-width: 340px;
+}
+
+.Project__item .Project__header-title:before {
+    /* Box model */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    /* Visual */
+    background-image: linear-gradient(to top right, #ffcc2b 0%, #ff1d65 100%);
+    opacity: 0;
+    transition: all .2s linear;
+}
+
+.Project__item:hover .Project__header-title:before {
+    opacity: .9;
+}
+
+.Project__item .Project__header-title:after {
+    /* Box model */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    /* Visual */
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: all .3s linear;
+}
+
+.Project__item .Project__header-title--magiedude:after {
+    background-image: url('../../../public/img/projects/lamagiedude/lamagiedude-logo.png');
+    background-size: 70%;
+}
+
+.Project__item .Project__header-title--voxeet:after {
+    background-image: url('../../../public/img/projects/voxeet/voxeet-logo.png');
+    background-size: 50%;
+}
+
+.Project__item .Project__header-title--themakers:after {
+    background-image: url('../../../public/img/projects/themakers/themakers-logo.png');
+    background-size: 50%;
+}
+
+.Project__item .Project__header-title--samboat:after {
+    background-image: url('../../../public/img/projects/samboat/samboat-logo.png');
+    background-size: 60%;
+}
+
+.Project__item .Project__header-title--maisondelasabliere:after {
+    background-image: url('../../../public/img/projects/maisondelasabliere/maisondelasabliere-logo.png');
+    background-size: 60%;
+}
+
+.Project__item .Project__header-title--moretv:after {
+    background-image: url('../../../public/img/projects/moretv/moretv-logo.png');
+    background-size: 50%;
+}
+
+.Project__item:hover .Project__header-title:after {
+    opacity: 1;
+}
+
+.Project__content {
+    padding: .6rem 1rem;
+    flex: 1;
+}
+
+.Project__item-subtitle {
+    /* Box model */
+    margin: 0 0 .2rem;
+
+    /* Typo */
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -1px;
+    font-weight: 500;
+    color: #222;
+    font-size: .95rem;
+    text-transform: uppercase;
+}
+.Project__item-link {
+    /* Box model */
+    display: inline-flex;
+    margin-bottom: .4rem;
+
+    /* Typo */
+    text-decoration: none;
+
+    /* Visual */
+    border-bottom: 1px solid #ddd;
+    transition: .2s linear;
+}
+
+.Project__item:hover .Project__item-link {
+    /* Visual */
+    border-color: #aaa;
+}
+
+.Project__item-copy {
+    /* Box model */
+    margin: 0 0 .8rem;
+
+    /* Typo */
+    font-size: .85rem;
+    color: #555;
+}
+
+.Project__footer {
+    display: flex;
+    justify-content: center;
+    padding: .2rem 1rem 1.2rem;
+    display: none;
+}
+
+.Skills {
+    /* Box model */
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+
+    /* Visual */
+    list-style-type: none;
+}
+
+.Skills__item {
+    /* Box model */
+    margin-right: .3rem;
+    margin-bottom: .3rem;
+    padding: .15rem .3rem;
+
+    /* Typo */
+    font-size: .7rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+
+    /* Visual */
+    border: 1px solid #222;
+    font-weight: 500;
+    border-radius: 3px;
+}
+
+.Skills__item--dev {
+    /* Typo */
+    color: #ff1d65;
+
+    /* Visual */
+    border-color: #ff1d65;
+}
+
+.Skills__item--integration {
+    /* Typo */
+    color: #ff634d;
+
+    /* Visual */
+    border-color: #ff634d;
+}
+
+.Skills__item--design {
+    /* Typo */
+    color: #ff9738;
+
+    /* Visual */
+    border-color: #ff9738;
+}
+
+.Skills__item:last-child {
+    margin-right: 0;
+}

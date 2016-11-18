@@ -2,9 +2,6 @@ html {
     /* Box model */
     height: 100%;
     box-sizing: border-box;
-
-    /* Typo */
-    font-size: 100%;
 }
 
 *, *:before, *:after {

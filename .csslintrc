@@ -1,8 +1,10 @@
 {
   "vendor-prefix": false,
+  "gradients": false,
   "compatible-vendor-prefixes": false,
   "box-sizing": false,
   "universal-selector": false,
   "fallback-colors": false,
-  "box-model": false
+  "box-model": false,
+  "font-sizes": false
 }

@@ -19,10 +19,19 @@
     margin: 0;
 }
 
+.Hero-unit__title-copy {
+    /* Typo */
+    color: transparent;
+
+    /* Visual */
+    visibility: hidden;
+}
+
 .Hero-unit__logo-link {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: -2rem;
 }
 
 .Hero-unit__copy {

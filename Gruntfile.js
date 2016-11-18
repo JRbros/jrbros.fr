@@ -59,7 +59,7 @@ module.exports = function(grunt) {
                 useTimeStamp: true
             },
             files: {
-                src: ['./*.html']
+                src: ['./index.html']
             }
         },
 
@@ -94,13 +94,14 @@ module.exports = function(grunt) {
             }
         },
 
-        cssnano: {
+        cssmin: {
             options: {
-                sourcemap: false
+                shorthandCompacting: false,
+                roundingPrecision: -1
             },
-            dist: {
+            target: {
                 files: {
-                    'public/style.min.css': 'public/style.css'
+                    'public/style.css': 'public/style.css'
                 }
             }
         },
@@ -108,7 +109,7 @@ module.exports = function(grunt) {
         uncss: {
             dist: {
                 files: {
-                    'public/style.css': ['./*.html']
+                    'public/style.css': ['./index.html']
                 }
             }
         },
@@ -140,7 +141,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jade');
     grunt.loadNpmTasks('grunt-w3c-html-validation');
     grunt.loadNpmTasks('grunt-contrib-csslint');
-    grunt.loadNpmTasks('grunt-cssnano');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-uncss');
 
     // Default task(s).
@@ -150,6 +151,6 @@ module.exports = function(grunt) {
     grunt.registerTask('dev', ['jade:dev', 'validation', 'postcss', 'csslint']);
 
     // Prod task(s).
-    grunt.registerTask('prod', ['jade:prod', 'validation', 'postcss', 'uncss', 'csslint', 'cssnano']);
+    grunt.registerTask('prod', ['jade:prod', 'validation', 'postcss', 'uncss', 'csslint', 'cssmin']);
 
 };

@@ -37,11 +37,7 @@
     margin: 1rem 0;
 
     /* Typo */
-    font-size: 1rem;
     font-weight: 300;
-}
-
-.Section__header + .Section__copy {
 }
 
 .Section__copy--lead {

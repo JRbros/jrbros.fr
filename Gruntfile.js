@@ -64,22 +64,39 @@ module.exports = function(grunt) {
         },
 
         postcss: {
-            options: {
-                processors: [
-                    require('postcss-import')(),
-                    require('autoprefixer')(),
-                    require('cssnext')(),
-                    require('postcss-url')({
-                        url: 'copy',
-                        from: 'src/css/lib/style.css',
-                        to: 'public/style.css'
-                    })
-                ]
+            init: {
+                options: {
+                    processors: [
+                        require('postcss-import')(),
+                        require('autoprefixer')(),
+                        require('cssnext')(),
+                        require('postcss-url')({
+                            url: 'copy',
+                            from: 'src/css/lib/init.css',
+                            to: './init.css'
+                        })
+                    ]
+                },
+                src: 'src/css/init.css',
+                dest: 'init.css'
             },
-            files: {
+            rest: {
+                options: {
+                    processors: [
+                        require('postcss-import')(),
+                        require('autoprefixer')(),
+                        require('cssnext')(),
+                        require('postcss-url')({
+                            url: 'copy',
+                            from: 'src/css/lib/style.css',
+                            to: 'public/style.css'
+                        })
+                    ]
+                },
                 src: 'src/css/style.css',
                 dest: 'public/style.css'
             }
+
         },
 
         csslint: {
@@ -90,7 +107,7 @@ module.exports = function(grunt) {
                 options: {
                     import: 2
                 },
-                src: ['public/style.css']
+                src: ['public/style.css', 'init.css']
             }
         },
 
@@ -100,17 +117,26 @@ module.exports = function(grunt) {
                 roundingPrecision: -1
             },
             target: {
-                files: {
-                    'public/style.css': 'public/style.css'
-                }
+                files: [
+                    {'public/style.css': 'public/style.css'},
+                    {'init.css': 'init.css'}
+                ]
             }
         },
 
-        uncss: {
+        replace: {
             dist: {
-                files: {
-                    'public/style.css': ['./index.html']
-                }
+                options: {
+                    patterns: [
+                        {
+                            match: 'include_css_style_tag',
+                            replacement: '<%= grunt.file.read("init.css") %>'
+                        }
+                    ]
+                },
+                files: [
+                    {expand: true, flatten: true, src: ['index.html'], dest: ''}
+                ]
             }
         },
 
@@ -126,8 +152,8 @@ module.exports = function(grunt) {
                 }
             },
             css: {
-                files: ['src/css/style.css', 'src/css/**/*.css'],
-                tasks: ['postcss', 'csslint'],
+                files: ['src/css/*.css', 'src/css/**/*.css'],
+                tasks: ['postcss', 'csslint', 'replace'],
                 options: {
                     spawn: false
                 }
@@ -142,15 +168,15 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-w3c-html-validation');
     grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-uncss');
+    grunt.loadNpmTasks('grunt-replace');
 
     // Default task(s).
     grunt.registerTask('default', ['dev', 'connect', 'watch']);
 
     // Init dev task(s).
-    grunt.registerTask('dev', ['jade:dev', 'validation', 'postcss', 'csslint']);
+    grunt.registerTask('dev', ['jade:dev', 'validation', 'postcss', 'csslint', 'replace']);
 
     // Prod task(s).
-    grunt.registerTask('prod', ['jade:prod', 'validation', 'postcss', 'uncss', 'csslint', 'cssmin']);
+    grunt.registerTask('prod', ['jade:prod', 'validation', 'postcss', 'csslint', 'cssmin', 'replace']);
 
 };
